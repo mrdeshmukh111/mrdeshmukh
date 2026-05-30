@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Deshmukh :: Cyber Security Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --g:#00ff41;--c:#00ffff;--r:#ff0040;--y:#ffff00;
+  --bg:#020c02;--txt:#b0ffb0;
+  --mono:'Share Tech Mono',monospace;
+  --disp:'Orbitron',sans-serif;
+  --body:'Rajdhani',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:var(--mono);overflow-x:hidden;cursor:none;min-height:100vh;}
+canvas#mc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:.13;pointer-events:none;}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,65,.012) 2px,rgba(0,255,65,.012) 4px);pointer-events:none;z-index:1;}
+#cur{position:fixed;width:10px;height:10px;background:var(--g);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px var(--g),0 0 20px var(--g);transition:width .1s,height .1s;}
+#cur2{position:fixed;width:32px;height:32px;border:1px solid var(--g);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;transition:all .15s ease-out;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(2,12,2,.97);border-bottom:1px solid rgba(0,255,65,.15);}
+.nl{font-family:var(--disp);font-size:.75rem;font-weight:700;color:var(--g);letter-spacing:3px;text-decoration:none;}
+.nl span{color:var(--r);}
+.nm{display:flex;gap:1.5rem;list-style:none;}
+.nm a{font-family:var(--mono);font-size:.65rem;color:var(--txt);text-decoration:none;letter-spacing:2px;opacity:.6;transition:all .2s;}
+.nm a:hover{color:var(--g);opacity:1;}
+section{position:relative;z-index:2;padding:4rem 3rem;max-width:1100px;margin:0 auto;}
+#hero{display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding-top:4rem;}
+.hp{font-size:.7rem;color:var(--g);letter-spacing:4px;margin-bottom:.5rem;opacity:.7;}
+.hn{font-family:var(--disp);font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1;color:#fff;}
+.hn .a{color:var(--g);}
+.glitch{position:relative;display:inline-block;}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;font-family:var(--disp);font-size:inherit;font-weight:inherit;}
+.glitch::before{color:var(--r);animation:g1 4s infinite;clip-path:polygon(0 0,100% 0,100% 35%,0 35%);}
+.glitch::after{color:var(--c);animation:g2 4s infinite;clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);}
+@keyframes g1{0%,88%,100%{transform:translate(0);opacity:0;}89%{transform:translate(-3px,1px);opacity:.8;}90%{transform:translate(3px,-1px);opacity:.8;}91%{transform:translate(0);opacity:0;}}
+@keyframes g2{0%,91%,100%{transform:translate(0);opacity:0;}92%{transform:translate(3px,1px);opacity:.8;}93%{transform:translate(-2px,-1px);opacity:.8;}94%{transform:translate(0);opacity:0;}}
+.ht{font-family:var(--body);font-size:1rem;font-weight:300;letter-spacing:5px;color:var(--c);text-transform:uppercase;margin-top:.75rem;}
+.ht span{color:var(--g);font-weight:600;}
+.tl{font-size:.8rem;color:var(--g);margin-top:1.5rem;}
+.tl .pr{color:var(--c);}.tl .pt{color:var(--y);}
+.blink{animation:bk 1s step-end infinite;}
+@keyframes bk{0%,100%{opacity:1;}50%{opacity:0;}}
+.hs{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap;}
+.si .sn{font-family:var(--disp);font-size:1.8rem;font-weight:700;color:var(--g);}
+.si .sl{font-size:.55rem;opacity:.5;letter-spacing:2px;margin-top:.2rem;}
+.hc{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{font-family:var(--mono);font-size:.7rem;letter-spacing:2px;padding:.65rem 1.75rem;border:1px solid var(--g);color:var(--g);background:transparent;cursor:none;text-decoration:none;display:inline-block;transition:all .25s;position:relative;overflow:hidden;text-transform:uppercase;}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--g);transition:left .25s;z-index:-1;}
+.btn:hover{color:var(--bg);}
+.btn:hover::before{left:0;}
+.btg{border-color:rgba(0,255,65,.25);color:rgba(176,255,176,.6);}
+.btg::before{background:rgba(0,255,65,.8);}
+.btg:hover{color:var(--bg);}
+.sh{margin-bottom:2.5rem;}
+.st{font-size:.6rem;color:var(--g);letter-spacing:4px;opacity:.6;margin-bottom:.4rem;}
+.ss{font-family:var(--disp);font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:#fff;letter-spacing:2px;}
+.ss .a{color:var(--g);}
+.sl2{width:50px;height:2px;background:linear-gradient(90deg,var(--g),transparent);margin-top:.75rem;}
+#about{min-height:auto;padding:5rem 3rem 3rem;}
+.ag{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start;}
+.tb{background:rgba(0,255,65,.025);border:1px solid rgba(0,255,65,.18);padding:1.25rem;position:relative;}
+.tb::before{content:'● ● ●';position:absolute;top:.6rem;left:.75rem;font-size:.45rem;color:rgba(0,255,65,.35);letter-spacing:3px;}
+.tbt{font-size:.55rem;color:rgba(0,255,65,.35);text-align:center;margin-bottom:1.25rem;margin-top:.5rem;letter-spacing:3px;}
+.asc{font-family:var(--mono);font-size:.5rem;line-height:1.3;color:var(--g);text-align:center;opacity:.75;white-space:pre;}
+.atxt p{font-family:var(--body);font-size:.95rem;line-height:1.8;color:rgba(176,255,176,.65);margin-bottom:.75rem;}
+.atxt p span{color:var(--g);}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.25rem;}
+.ii{font-size:.65rem;}
+.ik{color:var(--c);}.iv{color:var(--txt);opacity:.7;}
+#skills{min-height:auto;padding:3rem;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.sc{background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.12);padding:1.25rem;transition:all .3s;position:relative;overflow:hidden;}
+.sc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--g);transform:scaleY(0);transform-origin:bottom;transition:transform .3s;}
+.sc:hover{border-color:rgba(0,255,65,.4);background:rgba(0,255,65,.05);transform:translateY(-2px);}
+.sc:hover::before{transform:scaleY(1);}
+.sci{font-size:1.3rem;margin-bottom:.75rem;display:block;}
+.scn{font-family:var(--disp);font-size:.68rem;font-weight:700;color:var(--g);letter-spacing:2px;margin-bottom:.6rem;}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+.tag{font-size:.55rem;padding:.15rem .5rem;border:1px solid rgba(0,255,65,.22);color:rgba(0,255,65,.65);}
+.sbw{margin-top:.75rem;background:rgba(0,255,65,.07);height:2px;}
+.sb{height:100%;background:var(--g);box-shadow:0 0 5px var(--g);width:0;transition:width 1.5s ease-out;}
+#exp{min-height:auto;padding:3rem;}
+.tline{position:relative;padding-left:2rem;}
+.tline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--g),transparent);}
+.ti{position:relative;margin-bottom:2rem;}
+.ti::before{content:'';position:absolute;left:-2.35rem;top:.4rem;width:7px;height:7px;background:var(--g);border-radius:50%;box-shadow:0 0 7px var(--g);}
+.td{font-size:.6rem;color:var(--c);letter-spacing:2px;margin-bottom:.2rem;}
+.tt{font-family:var(--disp);font-size:.9rem;font-weight:700;color:#fff;letter-spacing:1px;}
+.to{font-size:.7rem;color:var(--g);margin:.2rem 0 .6rem;}
+.tdesc{font-family:var(--body);font-size:.85rem;line-height:1.7;color:rgba(176,255,176,.55);}
+.tdesc li{list-style:none;padding-left:1rem;position:relative;margin-bottom:.25rem;}
+.tdesc li::before{content:'>';position:absolute;left:0;color:var(--g);}
+#certs{min-height:auto;padding:3rem;}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.cc{border:1px solid rgba(0,255,65,.18);padding:1.1rem;text-align:center;transition:all .3s;background:rgba(0,255,65,.02);}
+.cc:hover{border-color:var(--g);background:rgba(0,255,65,.07);transform:scale(1.04);box-shadow:0 0 18px rgba(0,255,65,.1);}
+.cb{font-size:1.8rem;display:block;margin-bottom:.6rem;}
+.cn{font-family:var(--disp);font-size:.58rem;font-weight:700;color:var(--g);letter-spacing:1px;margin-bottom:.2rem;}
+.co{font-size:.5rem;color:rgba(0,255,65,.35);letter-spacing:1px;}
+#contact{min-height:auto;padding:3rem;}
+.cog{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.ctxt{font-family:var(--body);font-size:.95rem;line-height:1.8;color:rgba(176,255,176,.6);margin-bottom:1.5rem;}
+.cls{display:flex;flex-direction:column;gap:.6rem;}
+.cl{font-size:.7rem;color:var(--txt);text-decoration:none;display:flex;align-items:center;gap:.6rem;opacity:.55;transition:opacity .2s;letter-spacing:1px;}
+.cl:hover{opacity:1;color:var(--g);}
+.cl em{color:var(--g);font-style:normal;}
+.fg{margin-bottom:1rem;}
+.fg label{font-size:.6rem;color:var(--g);letter-spacing:2px;display:block;margin-bottom:.3rem;}
+.fg input,.fg textarea{width:100%;background:rgba(0,255,65,.03);border:1px solid rgba(0,255,65,.18);color:var(--txt);font-family:var(--mono);font-size:.75rem;padding:.65rem .9rem;outline:none;transition:border-color .2s;resize:none;}
+.fg input:focus,.fg textarea:focus{border-color:var(--g);box-shadow:0 0 8px rgba(0,255,65,.08);}
+footer{position:relative;z-index:2;text-align:center;padding:1.5rem;border-top:1px solid rgba(0,255,65,.1);font-size:.6rem;color:rgba(0,255,65,.25);letter-spacing:2px;}
+.sdot{display:inline-block;width:7px;height:7px;background:var(--g);border-radius:50%;margin-right:.4rem;animation:pd 2s ease-in-out infinite;box-shadow:0 0 5px var(--g);}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);}}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:rgba(0,255,65,.25);}
+@media(max-width:768px){
+  section{padding:3rem 1.25rem;}
+  nav{padding:.6rem 1rem;}
+  .nm{gap:.75rem;}
+  .ag,.cog{grid-template-columns:1fr;gap:2rem;}
+  .sg{grid-template-columns:1fr 1fr;}
+  .cg{grid-template-columns:1fr 1fr;}
+  .hs{gap:1.5rem;}
+  #hero{padding-top:5rem;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="mc"></canvas>
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav>
+  <a href="#hero" class="nl">CIPHER<span>_0x1</span></a>
+  <ul class="nm">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#exp">EXP</a></li>
+    <li><a href="#certs">CERTS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hp">&gt; INITIALIZING PROFILE...</div>
+  <div class="hn">
+    <span class="glitch" data-text="Abhishek">Abhishek</span><br>
+    <span class="a">Deshmukh</span>
+  </div>
+  <div class="ht"><span>Ethical Hacker</span> &bull; VAPT Tester &bull; <span>Digital Forensic Examiner</span></div>
+  <div class="tl">
+    <span class="pr">root@kali:~$</span>&nbsp;<span class="pt">/home/Abhishek</span>&nbsp;
+    <span id="typed"></span><span class="blink">&#9611;</span>
+  </div>
+  <div class="hs">
+    <div class="si"><div class="sn">50+</div><div class="sl">CTF WINS</div></div>
+    <div class="si"><div class="sn">120+</div><div class="sl">BUGS FOUND</div></div>
+    <div class="si"><div class="sn">3+</div><div class="sl">YRS EXP</div></div>
+    <div class="si"><div class="sn">3</div><div class="sl">CERTS</div></div>
+  </div>
+  <div class="hc">
+    <a href="#contact" class="btn">&gt; HIRE ME</a>
+    <a href="#skills" class="btn btg">&gt; VIEW SKILLS</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sh">
+    <div class="st">[SECTION_01]</div>
+    <div class="ss">ABOUT <span class="a">ME</span></div>
+    <div class="sl2"></div>
+  </div>
+  <div class="ag">
+    <div>
+      <div class="tb">
+        <div class="tbt">[ PROFILE.EXE ]</div>
+        <div class="asc">   ██████████
+  ██  ████  ██
+  ██  ████  ██
+  ████████████
+    ██    ██
+  ████████████
+██  ██████████  ██
+    ██      ██
+    ████████</div>
+      </div>
+    </div>
+    <div class="atxt">
+      <p>Mi <span>Abhishek Deshmukh</span> — ek passionate cybersecurity professional. Systems la <span>secure karane</span>, vulnerabilities shodhaane, aani digital evidence analyze karane — hech maza kaam.</p>
+      <p>VAPT madhye mi <span>web apps, networks, ani mobile</span> systems test karto. Bug bounty programs madhye active aahe. Digital Forensics madhe <span>incident response, memory forensics</span> ani malware analysis majhi specialty ahe.</p>
+      <p>Har ek system la break karnya pasun aani tyala <span>secure karaycha</span> — hich majhi philosophy.</p>
+      <div class="ig">
+        <div class="ii"><span class="ik">LOCATION:</span><br><span class="iv">Thane, Mumbai, India</span></div>
+        <div class="ii"><span class="ik">STATUS:</span><br><span class="iv"><span class="sdot"></span>AVAILABLE</span></div>
+        <div class="ii"><span class="ik">FOCUS:</span><br><span class="iv">Red Team Ops</span></div>
+        <div class="ii"><span class="ik">EMAIL:</span><br><span class="iv">andeshmukh111@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sh">
+    <div class="st">[SECTION_02]</div>
+    <div class="ss">SKILL <span class="a">MATRIX</span></div>
+    <div class="sl2"></div>
+  </div>
+  <div class="sg">
+    <div class="sc">
+      <span class="sci">&#128308;</span>
+      <div class="scn">PENETRATION TESTING</div>
+      <div class="tags"><span class="tag">Metasploit</span><span class="tag">Burp Suite</span><span class="tag">Nmap</span><span class="tag">SQLMap</span><span class="tag">Nikto</span><span class="tag">OWASP</span></div>
+      <div class="sbw"><div class="sb" data-w="92"></div></div>
+    </div>
+    <div class="sc">
+      <span class="sci">&#128309;</span>
+      <div class="scn">DIGITAL FORENSICS</div>
+      <div class="tags"><span class="tag">Autopsy</span><span class="tag">Volatility</span><span class="tag">FTK Imager</span><span class="tag">Wireshark</span><span class="tag">EnCase</span><span class="tag">Sleuth Kit</span></div>
+      <div class="sbw"><div class="sb" data-w="88"></div></div>
+    </div>
+    <div class="sc">
+      <span class="sci">&#127994;</span>
+      <div class="scn">WEB APP SECURITY</div>
+      <div class="tags"><span class="tag">XSS</span><span class="tag">SQLi</span><span class="tag">SSRF</span><span class="tag">IDOR</span><span class="tag">XXE</span><span class="tag">API Testing</span></div>
+      <div class="sbw"><div class="sb" data-w="95"></div></div>
+    </div>
+    <div class="sc">
+      <span class="sci">&#9889;</span>
+      <div class="scn">NETWORK SECURITY</div>
+      <div class="tags"><span class="tag">Packet Analysis</span><span class="tag">Firewall</span><span class="tag">IDS/IPS</span><span class="tag">VPN</span><span class="tag">TCP/IP</span><span class="tag">DNS Enum</span></div>
+      <div class="sbw"><div class="sb" data-w="80"></div></div>
+    </div>
+    <div class="sc">
+      <span class="sci">&#128187;</span>
+      <div class="scn">SCRIPTING &amp; TOOLS</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">Kali Linux</span><span class="tag">Parrot OS</span><span class="tag">Git</span></div>
+      <div class="sbw"><div class="sb" data-w="85"></div></div>
+    </div>
+    <div class="sc">
+      <span class="sci">&#128373;</span>
+      <div class="scn">OSINT &amp; RECON</div>
+      <div class="tags"><span class="tag">Maltego</span><span class="tag">theHarvester</span><span class="tag">Shodan</span><span class="tag">Recon-ng</span><span class="tag">WHOIS</span><span class="tag">SpiderFoot</span></div>
+      <div class="sbw"><div class="sb" data-w="78"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="sh">
+    <div class="st">[SECTION_03]</div>
+    <div class="ss">WORK <span class="a">LOG</span></div>
+    <div class="sl2"></div>
+  </div>
+  <div class="tline">
+<div class="ti">
+  <div class="td">2025/12 – Present</div>
+  <div class="tt">SENIOR SECURITY ANALYST</div>
+  <div class="to">&gt; Nelito Solution | Thane, Mumbai, India</div>
+  <ul class="tdesc">
+    <li>Implemented SWIFT CSP controls and ensured compliance with SWIFT CSCF standards</li>
+    <li>Provided SWIFT infrastructure support, software installation, patching and secure configuration</li>
+    <li>Conducted VAPT for web applications and servers, remediating OWASP Top 10 vulnerabilities</li>
+    <li>Performed security audits, gap analysis and control validation across SWIFT systems</li>
+  </ul>
+</div>
+
+<div class="ti">
+  <div class="td">2024/04 – 2025/11</div>
+  <div class="tt">SECURITY CONSULTANT</div>
+  <div class="to">&gt; ProgIST Solutions LLP</div>
+  <ul class="tdesc">
+    <li>Conducted security testing on Mobile, Web and API applications</li>
+    <li>Performed SAST to identify code-level vulnerabilities in SDLC</li>
+    <li>Used Qualys, Acunetix and NST Assure for vulnerability assessments</li>
+    <li>Delivered detailed reports with remediation recommendations</li>
+  </ul>
+</div>
+
+<div class="ti">
+  
+<div class="ti">
+  <div class="td">2022/04 – 2022/10</div>
+  <div class="tt">DIGITAL FORENSICS ANALYST</div>
+  <div class="to">&gt; Systools Software | Bangalore, India</div>
+  <ul class="tdesc">
+    <li>Conducted digital forensic analysis on computers, laptops, mobile phones and tablets</li>
+    <li>Recovered deleted files from hard drives using specialized forensic software</li>
+    <li>Prepared detailed forensic reports for law enforcement agencies and prosecutors</li>
+  </ul>
+</div>
+<div class="td">2023/01 – 2024/04</div>
+  <div class="tt">SECURITY ANALYST</div>
+  <div class="to">&gt; The Cosmos Co-operative Bank Ltd | Pune, India</div>
+  <ul class="tdesc">
+    <li>Performed penetration testing and vulnerability assessments</li>
+    <li>Used Nessus, Metasploit, Nmap and Burp Suite</li>
+    <li>Identified security risks and recommended remediation measures</li>
+    <li>Provided technical support on security-related issues</li>
+  </ul>
+</div>
+</div>
+</section>
+
+<section id="certs">
+  <div class="sh">
+    <div class="st">[SECTION_04]</div>
+    <div class="ss">CERT <span class="a">ARSENAL</span></div>
+    <div class="sl2"></div>
+  </div>
+  <div class="cg">
+    <div class="cc"><span class="cb">&#127919;</span><div class="cn">CEH</div><div class="co">EC-COUNCIL</div></div>
+    <div class="cc"><span class="cb">&#128275;</span><div class="cn">OSCP</div><div class="co">OFFENSIVE SEC</div></div>
+    <div class="cc"><span class="cb">&#128300;</span><div class="cn">CHFI</div><div class="co">EC-COUNCIL</div></div>
+    <div class="cc"><span class="cb">&#128737;</span><div class="cn">CompTIA Sec+</div><div class="co">COMPTIA</div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sh">
+    <div class="st">[SECTION_05]</div>
+    <div class="ss">OPEN <span class="a">CHANNEL</span></div>
+    <div class="sl2"></div>
+  </div>
+  <div class="cog">
+    <div>
+      <div class="ctxt">Vulnerability disclosure, penetration testing engagement, ki digital forensics investigation — konitihi kama sathi contact kar. Response time: <span style="color:var(--g)">&lt; 24h</span></div>
+      <div class="cls">
+        <a href="mailto:andeshmukh111@gmail.com" class="cl"><em>@</em> andeshmukh111@gmail.com</a><a href="tel:+917387406232" class="cl"><em>☎</em> +91 7387406232</a>
+        <a href="#" class="cl"><em>&#8962;</em> Maharashtra, India</a>
+        <a href="#" class="cl"><em>&#9654;</em> github.com/mrdeshmukh111</a>
+        
+        <a href="#" class="cl"><em>in</em> linkedin.com/in/mrdeshmukh111</a>
+      </div>
+    </div>
+    <div>
+      <div class="fg"><label>// NAME</label><input type="text" placeholder="your_name"></div>
+      <div class="fg"><label>// EMAIL</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fg"><label>// MESSAGE</label><textarea rows="4" placeholder="// describe your security needs..."></textarea></div>
+      
+<a href="#" class="btn" onclick="sendMail();return false;">&gt; TRANSMIT MESSAGE</a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="sdot"></span> CIPHER_0x1 :: ALL RIGHTS RESERVED :: 2025 &nbsp;|&nbsp; UNAUTHORIZED ACCESS PROHIBITED
+</footer>
+
+<script>
+// Matrix Rain
+(function(){
+  var canvas=document.getElementById('mc');
+  var ctx=canvas.getContext('2d');
+  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+  resize();
+  window.addEventListener('resize',resize);
+  var cols=Math.floor(window.innerWidth/18);
+  var drops=[];
+  for(var i=0;i<cols;i++) drops[i]=Math.random()*50;
+  var chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>/\\|{}[]';
+  function draw(){
+    ctx.fillStyle='rgba(2,12,2,0.05)';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='#00ff41';
+    ctx.font='14px Share Tech Mono,monospace';
+    for(var i=0;i<drops.length;i++){
+      var c=chars[Math.floor(Math.random()*chars.length)];
+      ctx.fillText(c,i*18,drops[i]*18);
+      if(drops[i]*18>canvas.height && Math.random()>.975) drops[i]=0;
+      drops[i]++;
+    }
+  }
+  setInterval(draw,60);
+})();
+
+// Custom Cursor
+(function(){
+  var cur=document.getElementById('cur');
+  var cur2=document.getElementById('cur2');
+  var mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+  });
+  function animCur(){
+    cx+=(mx-cx)*0.15; cy+=(my-cy)*0.15;
+    cur2.style.left=cx+'px'; cur2.style.top=cy+'px';
+    requestAnimationFrame(animCur);
+  }
+  animCur();
+  var hoverEls=document.querySelectorAll('a,.btn,.sc,.cc,.ti');
+  hoverEls.forEach(function(el){
+    el.addEventListener('mouseenter',function(){
+      cur.style.width='16px'; cur.style.height='16px';
+      cur2.style.width='48px'; cur2.style.height='48px';
+      cur2.style.borderColor='#00ffff';
+    });
+    el.addEventListener('mouseleave',function(){
+      cur.style.width='10px'; cur.style.height='10px';
+      cur2.style.width='32px'; cur2.style.height='32px';
+      cur2.style.borderColor='#00ff41';
+    });
+  });
+})();
+
+// Typing Effect
+(function(){
+  var lines=['./scan_target.sh --full','[!] 1337 open ports found','[CRIT] CVE-2024-1234 detected','./exploit --target 10.0.0.1','[+] ROOT ACCESS OBTAINED'];
+  var li=0,ci=0;
+  var el=document.getElementById('typed');
+  function type(){
+    if(ci<lines[li].length){
+      el.textContent=lines[li].substring(0,ci+1);
+      ci++;
+      setTimeout(type,65);
+    } else {
+      setTimeout(function(){
+        ci=0; li=(li+1)%lines.length;
+        el.textContent='';
+        type();
+      },2000);
+    }
+  }
+  type();
+})();
+
+// Skill Bar Scroll Animation
+(function(){
+  var bars=document.querySelectorAll('.sb');
+  var animated=false;
+  function checkScroll(){
+    var skillSection=document.getElementById('skills');
+    if(!skillSection) return;
+    var rect=skillSection.getBoundingClientRect();
+    if(rect.top<window.innerHeight*0.8 && !animated){
+      animated=true;
+      bars.forEach(function(b){
+        b.style.width=b.getAttribute('data-w')+'%';
+      });
+    }
+  }
+  window.addEventListener('scroll',checkScroll);
+  checkScroll();
+})();
+
+
+function sendMail(){
+ const name=document.querySelector('input[type="text"]').value||'Unknown';
+ const email=document.querySelector('input[type="email"]').value||'';
+ const msg=document.querySelector('textarea').value||'';
+ const subject=encodeURIComponent(name+' - Inquiry');
+ const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+msg);
+ window.location.href='mailto:andeshmukh111@gmail.com?subject='+subject+'&body='+body;
+}
+
+// Smooth nav scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+
+<audio id="bgAudio" preload="auto">
+<source src="10 Seconds Timer with Music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let audioStarted=false;
+document.addEventListener('click',function(){
+ if(audioStarted) return;
+ audioStarted=true;
+ setTimeout(function(){
+   const a=document.getElementById('bgAudio');
+   if(a){a.volume=0.5;a.play().catch(()=>{});}
+ },5000);
+},{once:true});
+</script>
+
+</body>
+</html>
